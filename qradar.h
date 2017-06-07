@@ -8,10 +8,12 @@
 #include <QAreaSeries>
 #include <QScatterSeries>
 #include <QDebug>
-
+#include <QGraphicsLayout>
 class QRadarImpl;
 class QRadarChart : public QtCharts::QChartView
 {
+Q_OBJECT
+    Q_PROPERTY(QBrush backgroundBrush READ backgroundBrush WRITE setBackgroundBrush)
 public:
     explicit QRadarChart(QWidget *parent = 0);
     virtual ~QRadarChart();

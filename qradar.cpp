@@ -171,11 +171,12 @@ void QRadarImpl::initChart()
             m_radialMin + m_Angulars[0].value
         );
     }
-    m_chart.addSeries(&m_center);
     m_chart.addSeries(&m_baseLine);
     m_chart.addSeries(&m_drawLine);
     m_chart.addSeries(&m_baseArea);
     m_chart.addSeries(&m_drawArea);
+    m_chart.addSeries(&m_center);
+
     //绘图区颜色
     m_baseArea.setColor(m_baseAreaColor);
     //表述区颜色
@@ -254,6 +255,9 @@ void QRadarChart::drawChart()
     delete old;
     this->chart()->legend()->hide();
     this->setRenderHints(QPainter::Antialiasing | QPainter::SmoothPixmapTransform);
+    this->chart()->setBackgroundBrush(Qt::transparent);
+    this->chart()->layout()->setContentsMargins(0, 0, 0, 0);
+    this->chart()->setBackgroundRoundness(0);
 }
 
 void QRadarChart::configAreaColor(

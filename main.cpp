@@ -5,6 +5,11 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     QRadarChart w;
 
+    w.setStyleSheet(
+        "QRadarChart{"
+        "background-color:transparent;"
+        "}"
+    );
     w.addStat("one",90);
     w.addStat("two", 70);
     w.addStat("three", 50);
@@ -16,7 +21,6 @@ int main(int argc, char *argv[])
     w.configAreaColor(blue, yellow, Qt::red, Qt::red);
     w.getRadialAxis()->hide();
     w.drawChart();
-    w.chart()->setBackgroundBrush(Qt::transparent);
     w.getCenterSeries()->hide();
     w.show();
 
